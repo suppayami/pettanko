@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/suppayami/pettanko/models"
-	"github.com/suppayami/pettanko/repositories"
+	"github.com/suppayami/pettanko.go/models"
+	"github.com/suppayami/pettanko.go/repositories"
 )
 
 var (

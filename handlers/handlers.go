@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/suppayami/pettanko/db"
-	"github.com/suppayami/pettanko/middleware"
+	"github.com/suppayami/pettanko.go/middleware"
+	"github.com/suppayami/pettanko.go/service"
 )
 
 var mux *http.ServeMux
@@ -18,11 +18,12 @@ func init() {
 func SetupRoute() {
 	mux.Handle("/", middleware.ResponseJSON(&IndexHandler{}))
 	mux.Handle("/ping/", middleware.ResponseJSON(&PingHandler{}))
-	mux.Handle("/blocked/", middleware.ResponseJSON(middleware.BlockRoute(&PingHandler{})))
+	mux.Handle("/blocked/", middleware.ResponseJSON(
+		middleware.BlockRoute(&PingHandler{}),
+	))
 	mux.Handle("/anime/", middleware.ResponseJSON(
-		middleware.GetMethod(
-			&AnimeHandler{animeRepo: db.AnimeRepository()},
-		)))
+		&AnimeHandler{animeRepo: db.AnimeRepository()},
+	))
 }
 
 // Serve listens to given address and handles incoming requests

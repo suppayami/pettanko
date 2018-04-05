@@ -1,6 +1,6 @@
 package main
 
-import "github.com/suppayami/pettanko/handlers"
+import "github.com/suppayami/pettanko.go/handlers"
 
 func main() {
 	handlers.SetupRoute()

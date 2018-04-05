@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/suppayami/pettanko/middleware"
-	"github.com/suppayami/pettanko/repositories"
+	"github.com/suppayami/pettanko.go/commons"
+	"github.com/suppayami/pettanko.go/repositories"
 )
 
 // AnimeHandler responses to /anime/ resource
@@ -24,7 +24,7 @@ func (handler *AnimeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	id, err := strconv.Atoi(routeParams[0])
 	if err != nil {
-		middleware.NotFoundHandler(w, r)
+		commons.NotFoundHandler(w, r)
 		return
 	}
 	handler.anime(w, r, id)
@@ -38,7 +38,7 @@ func (handler *AnimeHandler) allAnime(w http.ResponseWriter, r *http.Request) {
 func (handler *AnimeHandler) anime(w http.ResponseWriter, r *http.Request, id int) {
 	anime := handler.animeRepo.Anime(id)
 	if anime == nil {
-		middleware.NotFoundHandler(w, r)
+		commons.NotFoundHandler(w, r)
 		return
 	}
 	json.NewEncoder(w).Encode(anime)
