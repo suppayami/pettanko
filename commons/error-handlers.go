@@ -7,6 +7,13 @@ import (
 	"github.com/suppayami/pettanko/models"
 )
 
+// UnauthorizedHandler handles Unauthorized (401) error
+func UnauthorizedHandler(w http.ResponseWriter, r *http.Request) {
+	msg := &models.SimpleMessage{Message: "401 unauthorized"}
+	w.WriteHeader(401)
+	json.NewEncoder(w).Encode(msg)
+}
+
 // ForbiddenHandler handles Forbidden (403) error
 func ForbiddenHandler(w http.ResponseWriter, r *http.Request) {
 	msg := &models.SimpleMessage{Message: "403 forbidden"}
