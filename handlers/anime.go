@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/suppayami/pettanko.go/commons"
-	"github.com/suppayami/pettanko.go/repositories"
+	"github.com/suppayami/pettanko/commons"
+	"github.com/suppayami/pettanko/repositories"
 )
 
 // AnimeHandler responses to /anime/ resource

@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/suppayami/pettanko.go/middleware"
-	"github.com/suppayami/pettanko.go/service"
+	"github.com/suppayami/pettanko/middleware"
+	"github.com/suppayami/pettanko/service"
 )
 
 var mux *http.ServeMux

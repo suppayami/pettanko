@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/suppayami/pettanko.go/models"
+	"github.com/suppayami/pettanko/models"
 )
 
 // PingHandler responses all requests with pong

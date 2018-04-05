@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/suppayami/pettanko.go/models"
+	"github.com/suppayami/pettanko/models"
 )
 
 // AnimeRepository gives access to anime list

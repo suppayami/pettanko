@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/suppayami/pettanko.go/commons"
+	"github.com/suppayami/pettanko/commons"
 )
 
 // BlockRoute blocks all requests to given handler
