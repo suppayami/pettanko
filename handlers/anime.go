@@ -17,11 +17,22 @@ type AnimeHandler struct {
 
 // ServeHTTP implement
 func (handler *AnimeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" {
+		handler.getMethod(w, r)
+		return
+	}
+	commons.MethodNotAllowedHandler(w, r)
+}
+
+func (handler *AnimeHandler) getMethod(w http.ResponseWriter, r *http.Request) {
+	// resource root
 	routeParams := strings.Split(r.URL.Path, "/")[2:]
 	if routeParams[0] == "" {
 		handler.allAnime(w, r)
 		return
 	}
+
+	// resource at id
 	id, err := strconv.Atoi(routeParams[0])
 	if err != nil {
 		commons.NotFoundHandler(w, r)
