@@ -17,7 +17,7 @@ func init() {
 // SetupRoute setups handles for each route and is called in main
 func SetupRoute() {
 	mux.Handle("/", middleware.ResponseJSON(&IndexHandler{}))
-	mux.Handle("/auth", middleware.ResponseJSON(&AuthHandler{}))
+	mux.Handle("/auth/", middleware.ResponseJSON(&AuthHandler{}))
 	mux.Handle("/ping/", middleware.ResponseJSON(&PingHandler{}))
 	mux.Handle("/blocked/", middleware.ResponseJSON(
 		middleware.BlockRoute(&PingHandler{}),
